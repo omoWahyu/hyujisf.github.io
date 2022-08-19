@@ -4,11 +4,7 @@ on:
   push:
     branches:
       - gh-pages
-      - [main]
-  pull_request:
-    branches:
-      - gh-pages
-      - [main]
+      - main
 
 jobs:
   ci:
@@ -21,17 +17,17 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@main
+      - uses: actions/checkout@v3
 
       - name: Setup node env 🏗 | Use Node.js ${{ matrix.nodejs }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.nodejs }}
           cache: "npm"
           check-latest: true
 
       - name: Install dependencies 👨🏻‍💻
-        run: pnpm install
+        run: pnpm install --legacy-peer-deps
 
       - run: pnpm build
       - run: pnpm export
