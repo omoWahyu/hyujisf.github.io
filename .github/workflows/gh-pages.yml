@@ -1,0 +1,37 @@
+name: gh-pages
+
+on:
+  push:
+    branches:
+      - gh-pages
+      - [main]
+  pull_request:
+    branches:
+      - gh-pages
+      - [main]
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        nodejs: [16]
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@main
+
+      - name: Setup node env 🏗 | Use Node.js ${{ matrix.nodejs }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.nodejs }}
+          cache: "npm"
+          check-latest: true
+
+      - name: Install dependencies 👨🏻‍💻
+        run: pnpm install
+
+      - run: pnpm build
+      - run: pnpm export
