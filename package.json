@@ -7,13 +7,14 @@
 		"build": "next build & next export",
 		"start": "next start",
 		"lint": "next lint",
-		"deploy": "next build && touch out/.nojekyll && git add -f out/ && git commit -m \"Deploy\" && git subtree push --prefix out origin gh-pages"
+		"deploy": "pnpm build && touch out/.nojekyll && git add -f out/ && git commit -m \"Deploy\" && git subtree push --prefix out origin gh-pages"
 	},
 	"dependencies": {
 		"contentlayer": "^0.2.7",
 		"date-fns": "^2.29.2",
 		"next": "12.2.4",
 		"next-contentlayer": "^0.2.7",
+		"nuxt-blog": "link:",
 		"react": "18.2.0",
 		"react-dom": "18.2.0"
 	},

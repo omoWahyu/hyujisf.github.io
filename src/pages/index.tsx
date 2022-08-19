@@ -45,7 +45,7 @@ export default function Home({ blogs }: { blogs: Blog[] }) {
 										<h3 className='flex flex-row items-center space-x-2 text-lg font-semibold'>
 											{blog.title}
 										</h3>
-										<p className='text-md text-gray-300'>{blog.description}</p>
+										{/* <p className='text-md text-gray-300'>{blog.description}</p> */}
 									</div>
 								</Link>
 								<p className='min-w-[90px] text-right text-slate-500'>
