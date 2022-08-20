@@ -13,9 +13,9 @@ module.exports = withContentlayer({
 		domains: ["www.pexels.com"],
 	},
 	assetPrefix: isProd ? "https://hyujisf.github.io/" : "", // customize this value
-	// experimental: {
-	// 	images: {
-	// 		unoptimized: true,
-	// 	},
-	// },
+	experimental: {
+		images: {
+			unoptimized: true,
+		},
+	},
 })
