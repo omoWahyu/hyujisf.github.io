@@ -5,31 +5,24 @@ on:
     branches:
       - main
 
-workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   deployment:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        nodejs: [16]
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup node env 🏗 | Use Node.js ${{ matrix.nodejs }}
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.nodejs }}
+          node-version: "lts/*"
           cache: "npm"
-          check-latest: true
 
-      - name: Install dependencies 👨🏻‍💻
+      - name: Build
         run: |
-          npm run install --legacy-peer-deps
+          npm i
           npm run build
           npm run export
 
