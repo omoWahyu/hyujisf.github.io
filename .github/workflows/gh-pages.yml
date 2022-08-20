@@ -27,7 +27,13 @@ jobs:
           check-latest: true
 
       - name: Install dependencies 👨🏻‍💻
-        run: pnpm install --legacy-peer-deps
+        run: npm run install --legacy-peer-deps
 
-      - run: pnpm build
-      - run: pnpm export
+      - run: npm run build
+      - run: npm run export
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./out
