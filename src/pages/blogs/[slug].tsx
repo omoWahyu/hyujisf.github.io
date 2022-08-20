@@ -36,12 +36,26 @@ export default function Blog({ blog }: { blog: Blog }) {
 			<Head>
 				<title>{blog.title}</title>
 			</Head>
+			<div className='w-[100%] '>
+				<Image
+					alt='Forest'
+					src={blog.thumbnail}
+					className='rounded-more w-full'
+					width={600}
+					height={300}
+					layout='responsive'
+					objectPosition='center'
+				/>
+			</div>
 			<article className='prose prose-slate lg:prose-xl mx-auto'>
 				<h1 className='text-center mb-3'>{blog.title}</h1>
 				<p className='text-slate-500 text-center'>
 					bloged on{" "}
-					<time dateTime={blog.date} title={new Date(blog.date).toString()}>
-						{new Date(blog.date).toLocaleDateString("en-CA")}
+					<time
+						dateTime={blog.publishDate}
+						title={new Date(blog.publishDate).toString()}
+					>
+						{new Date(blog.publishDate).toLocaleDateString("en-CA")}
 					</time>
 				</p>
 				<MDXContent components={components} />

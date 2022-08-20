@@ -9,10 +9,13 @@ const nextConfig = {
 
 module.exports = withContentlayer({
 	...nextConfig,
-	assetPrefix: isProd ? "https://hyujisf.github.io/" : "", // customize this value
-	experimental: {
-		images: {
-			unoptimized: true,
-		},
+	images: {
+		domains: ["www.pexels.com"],
 	},
+	assetPrefix: isProd ? "https://hyujisf.github.io/" : "", // customize this value
+	// experimental: {
+	// 	images: {
+	// 		unoptimized: true,
+	// 	},
+	// },
 })

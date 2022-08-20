@@ -5,7 +5,9 @@ import id from "date-fns/locale/id"
 
 export async function getStaticProps() {
 	const blogs = allBlogs.sort((a, b) => {
-		if (new Date(a.date).getTime() >= new Date(b.date).getTime()) {
+		if (
+			new Date(a.publishDate).getTime() >= new Date(b.publishDate).getTime()
+		) {
 			return -1
 		}
 
@@ -49,7 +51,9 @@ export default function Home({ blogs }: { blogs: Blog[] }) {
 									</div>
 								</Link>
 								<p className='min-w-[90px] text-right text-slate-500'>
-									{format(new Date(blog.date), "d MMMM, yyyy", { locale: id })}
+									{format(new Date(blog.publishDate), "d MMMM, yyyy", {
+										locale: id,
+									})}
 								</p>
 							</div>
 							// <li key={blog.title} className='flex justify-between mb-3'>

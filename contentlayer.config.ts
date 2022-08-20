@@ -9,9 +9,23 @@ export const Blog = defineDocumentType(() => ({
 			type: "string",
 			required: true,
 		},
-		date: {
+		publishDate: {
 			type: "date",
 			description: "When the post was published",
+			required: true,
+		},
+		description: {
+			type: "string",
+			required: true,
+		},
+		tags: {
+			type: "list",
+			of: {
+				type: "string",
+			},
+		},
+		thumbnail: {
+			type: "string",
 			required: true,
 		},
 	},
