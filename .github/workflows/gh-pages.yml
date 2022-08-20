@@ -8,7 +8,7 @@ on:
 workflow_dispatch:
 
 jobs:
-  ci:
+  deployment:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Setup node env 🏗 | Use Node.js ${{ matrix.nodejs }}
         uses: actions/setup-node@v3
@@ -28,10 +28,10 @@ jobs:
           check-latest: true
 
       - name: Install dependencies 👨🏻‍💻
-        run: npm run install --legacy-peer-deps
-
-      - run: npm run build
-      - run: npm run export
+        run: |
+          npm run install --legacy-peer-deps
+          npm run build
+          npm run export
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
