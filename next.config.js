@@ -9,7 +9,7 @@ const nextConfig = {
 
 module.exports = withContentlayer({
 	...nextConfig,
-	assetPrefix: isProd ? "hyujisf.github.io/" : "", // customize this value
+	assetPrefix: isProd ? "https://hyujisf.github.io/" : "", // customize this value
 	experimental: {
 		images: {
 			unoptimized: true,
