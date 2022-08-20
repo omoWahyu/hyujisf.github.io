@@ -22,9 +22,9 @@ jobs:
 
       - name: Build
         run: |
-          pnpm install
-          pnpm run build
-          pnpm run export
+          npm i --legacy-peer-deps
+          npm run build
+          npm run export
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
