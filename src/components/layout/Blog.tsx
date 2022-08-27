@@ -1,7 +1,7 @@
 import Header from "./Header"
 import Footer from "./Footer"
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Blog({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Header />

@@ -6,7 +6,11 @@ module.exports = {
 	],
 	theme: {
 		extend: {},
-		borderRadius: { more: "1.25rem", "more-lg": "1.5rem" },
+		borderRadius: {
+			more: "1.25rem",
+			"more-sm": "0.75rem",
+			"more-lg": "1.5rem",
+		},
 	},
 	plugins: [require("@tailwindcss/typography")],
 }
